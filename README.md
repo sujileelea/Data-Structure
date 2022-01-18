@@ -1,1 +1,1 @@
-# 42Seoul-DataStructure
+# 42seoul_datastructure
