@@ -15,7 +15,7 @@ typedef struct ArrayListType
 {
 	int maxElementCount;		// 최대 원소 개수
 	int currentElementCount;	// 현재 원소의 개수
-	ArrayListNode *pElement;	// 원소 저장을 위한 1차원 배열
+	ArrayListNode *pElement;	// 원소 저장을 위한 1차원 배열(칸들)
 } ArrayList;
 
 ArrayList* createArrayList(int maxElementCount);

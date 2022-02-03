@@ -3,24 +3,31 @@
 
 typedef struct ListNodeType
 {
-	int data;
+	float coef;
+  int degree;
 	struct ListNodeType* pLink;
 } ListNode;
 
 typedef struct LinkedListType
 {
-	int currentElementCount;	// 현재 저장된 원소의 개수
-	ListNode headerNode;		// 헤더 노드(Header Node)
+	int currentElementCount;	// ???? ????? ?????? ????
+	ListNode headerNode;		// ??? ???(Header Node)
 } LinkedList;
 
+//
 LinkedList* createLinkedList();
 int addLLElement(LinkedList* pList, int position, ListNode element);
 int removeLLElement(LinkedList* pList, int position);
-ListNode* getLLElement(LinkedList* pList, int position);
+ListNode* getLLElement(LinkedList* pList, int degree);
 
 void clearLinkedList(LinkedList* pList);
 int getLinkedListLength(LinkedList* pList);
 void deleteLinkedList(LinkedList* pList);
+void reverseLinkedList(LinkedList *pList);
+int addPolyNodeLast(LinkedList *pList, float coef, int degree);
+void displayPolynomial(LinkedList *pList);
+LinkedList *sumPolynomial(LinkedList *A, LinkedList *B);
+
 #endif
 
 #ifndef _COMMON_LIST_DEF_
