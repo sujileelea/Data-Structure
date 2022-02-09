@@ -62,8 +62,9 @@ int main()
 		default:
 			break;
 		}
+		if (number == 5)
+			break;
 	}
-	if(myArray)
-		deleteArrayQueue(&myArray);
+	system("leaks arrayqueue");
 	return (0);
 }
