@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dequeueAQ.c                                        :+:      :+:    :+:   */
+/*   displayArrayQueue.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sujilee <sujilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 12:03:16 by sujilee           #+#    #+#             */
-/*   Updated: 2022/02/09 13:41:12 by sujilee          ###   ########.fr       */
+/*   Created: 2022/02/09 13:24:25 by sujilee           #+#    #+#             */
+/*   Updated: 2022/02/09 13:49:444 by sujilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arrayqueue.h"
 
-ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
+void displayArrayQueue(ArrayQueue* pQueue)
 {
-	ArrayQueueNode *ret_node;
+	int	j;
 
 	if (!pQueue)
-		return (FALSE);
-	if (isArrayQueueEmpty(pQueue))
-		return (FALSE);
-	ret_node = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode));
-	if (!ret_node)
-		return (FALSE);
-	printf("front index : %d", )
-	*ret_node = pQueue->pElement[pQueue->front];
-	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;
-	pQueue->currentElementCount--;
-	return (ret_node);
+		return ;
+	j = pQueue->front;
+	for (int i = 0; i < pQueue->currentElementCount; i++)
+	{
+		printf("index : %d, data : %d\n", j, pQueue->pElement[j].data);
+		j = (j + 1) % pQueue->maxElementCount;
+	}
 }

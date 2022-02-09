@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dequeueAQ.c                                        :+:      :+:    :+:   */
+/*   peekAQ.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sujilee <sujilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 12:03:16 by sujilee           #+#    #+#             */
-/*   Updated: 2022/02/09 13:41:12 by sujilee          ###   ########.fr       */
+/*   Created: 2022/02/09 12:40:46 by sujilee           #+#    #+#             */
+/*   Updated: 2022/02/09 12:55:05 by sujilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arrayqueue.h"
 
-ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
-{
-	ArrayQueueNode *ret_node;
-
+ArrayQueueNode *peekAQ(ArrayQueue* pQueue)
+{	
+    ArrayQueueNode  *peekNode;
+	
 	if (!pQueue)
-		return (FALSE);
-	if (isArrayQueueEmpty(pQueue))
-		return (FALSE);
-	ret_node = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode));
-	if (!ret_node)
-		return (FALSE);
-	printf("front index : %d", )
-	*ret_node = pQueue->pElement[pQueue->front];
-	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;
-	pQueue->currentElementCount--;
-	return (ret_node);
+		return FALSE;
+    peekNode = &pQueue->pElement[pQueue->front];
+	return (peekNode);
 }

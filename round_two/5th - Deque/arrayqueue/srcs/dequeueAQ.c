@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sujilee <sujilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 12:03:16 by sujilee           #+#    #+#             */
-/*   Updated: 2022/02/09 13:41:12 by sujilee          ###   ########.fr       */
+/*   Created: 2022/02/09 13:06:49 by sujilee           #+#    #+#             */
+/*   Updated: 2022/02/09 13:18:26 by sujilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue)
 {
-	ArrayQueueNode *ret_node;
-
+	 ArrayQueueNode	*frontNode;
+	
 	if (!pQueue)
-		return (FALSE);
+		return FALSE;
 	if (isArrayQueueEmpty(pQueue))
-		return (FALSE);
-	ret_node = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode));
-	if (!ret_node)
-		return (FALSE);
-	printf("front index : %d", )
-	*ret_node = pQueue->pElement[pQueue->front];
-	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;
+		return FALSE;
+	frontNode = (ArrayQueueNode *)malloc(sizeof(ArrayQueueNode));
+	if (!frontNode)
+		return FALSE;
+	*frontNode = pQueue->pElement[pQueue->front];
+	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;	
 	pQueue->currentElementCount--;
-	return (ret_node);
+	return (frontNode);
 }

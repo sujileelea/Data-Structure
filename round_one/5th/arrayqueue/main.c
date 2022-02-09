@@ -6,7 +6,7 @@
 /*   By: sujilee <sujilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 12:05:20 by sujilee           #+#    #+#             */
-/*   Updated: 2021/12/07 14:58:56 by sujilee          ###   ########.fr       */
+/*   Updated: 2022/02/09 13:21:43 by sujilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int main()
 {
-	// // ArrayStack *myArray;
-	// // ArrayStackNode *curr;
-	// // ArrayStackNode node0 = {0};
-	ArrayQueue *linkeds;
-	ArrayQueueNode node1 = { 0 };
-	ArrayQueueNode *curr;
+	ArrayStack *myArray;
+	ArrayStackNode *curr;
+	ArrayStackNode node0 = {0};
+	// ArrayQueue *linkeds;
+	// ArrayQueueNode node1 = { 0 };
+	// ArrayQueueNode *curr;
 
 	int len = 0;
 	int position = 0;
@@ -27,8 +27,8 @@ int main()
 	char c;
 	printf("input maxsize(0 when linkedlist): ");
 	scanf(" %d", &max);
-	// myArray = createArrayStack(max);
-	linkeds = createArrayQueue(max);
+	myArray = createArrayStack(max);
+	// linkeds = createArrayQueue(max);
 	while(1)
 	{
 		rewind(stdin);
@@ -44,26 +44,26 @@ int main()
 										
 		------------------------------------------------------------------------
 		*/
-		// case 'P':
-		// 	scanf("%c", &(node0.data));
-		// 	pushAS(myArray, node0);
-		// 	break ;
-		// case 'O':
-		// 	printf("%d\n", popAS(myArray)->data);
-		// 	break ;
-		// case 'K':
-		// 	printf("%d\n", peekAS(myArray)->data);
-		// 	break ;
-		// case 'F':
-		// 	printf("stack is %sfull\n", isArrayStackFull(myArray) == TRUE ? "" : "not ");
-		// 	break ;
-		// case 'E':
-		// 	printf("stack is %sempty\n", isArrayStackEmpty(myArray) == TRUE ? "" : "not ");
-		// 	break ;
-		// case 'R':
-		// 	for (int i = 0; i < myArray->currentElementCount; i++)
-		// 		printf("%c ", myArray->pElement[i].data);
-		// 	printf("\n");
+		case 'P':
+			scanf("%c", &(node0.data));
+			pushAS(myArray, node0);
+			break ;
+		case 'O':
+			printf("%d\n", popAS(myArray)->data);
+			break ;
+		case 'K':
+			printf("%d\n", peekAS(myArray)->data);
+			break ;
+		case 'F':
+			printf("stack is %sfull\n", isArrayStackFull(myArray) == TRUE ? "" : "not ");
+			break ;
+		case 'E':
+			printf("stack is %sempty\n", isArrayStackEmpty(myArray) == TRUE ? "" : "not ");
+			break ;
+		case 'R':
+			for (int i = 0; i < myArray->currentElementCount; i++)
+				printf("%c ", myArray->pElement[i].data);
+			printf("\n");
 		/*
 		------------------------------------------------------------------------
 
@@ -71,35 +71,35 @@ int main()
 										
 		------------------------------------------------------------------------
 		*/
-		case 'E':
-			scanf("%c", &(node1.data));
-			enqueueAQ(linkeds, node1);
-			break ;
-		case 'D':
-			printf("%d\n", (curr = dequeueAQ(linkeds)) ? curr->data : -1 );
-			free(curr);
-			break ;
-		case 'P':
-			printf("%d\n", (curr = peekAQ(linkeds)) ? curr->data : -1 );
-			break ;
-			free(curr);
-		case 'F':
-			printf("queue is %sfull\n", isArrayQueueFull(linkeds) == TRUE ? "" : "not ");
-			break ;
-		case 'T':
-			printf("queue is %sempty\n", isArrayQueueEmpty(linkeds) == TRUE ? "" : "not ");
-			break ;
-		case 'R':
-			displayArrayQueue(linkeds);
-			break;
-		default:
-			break;
-		}
-	}
-	if(linkeds)
-		deleteArrayQueue(linkeds);
-	return (0);
-}
+// 		case 'E':
+// 			scanf("%c", &(node1.data));
+// 			enqueueAQ(linkeds, node1);
+// 			break ;
+// 		case 'D':
+// 			printf("%d\n", (curr = dequeueAQ(linkeds)) ? curr->data : -1 );
+// 			free(curr);
+// 			break ;
+// 		case 'P':
+// 			printf("%d\n", (curr = peekAQ(linkeds)) ? curr->data : -1 );
+// 			break ;
+// 			free(curr);
+// 		case 'F':
+// 			printf("queue is %sfull\n", isArrayQueueFull(linkeds) == TRUE ? "" : "not ");
+// 			break ;
+// 		case 'T':
+// 			printf("queue is %sempty\n", isArrayQueueEmpty(linkeds) == TRUE ? "" : "not ");
+// 			break ;
+// 		case 'R':
+// 			displayArrayQueue(linkeds);
+// 			break;
+// 		default:
+// 			break;
+// 		}
+// 	}
+// 	if(linkeds)
+// 		deleteArrayQueue(linkeds);
+// 	return (0);
+// }
 
 /**
 int main()
