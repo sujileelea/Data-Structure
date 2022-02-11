@@ -1,4 +1,3 @@
-#include "linkedqueue.h"
 #include "simutil.h"
 
 // 고객 도착 -> 고객 대기 -> 서비스 노드 -> free
@@ -50,8 +49,7 @@ QueueNode* processServiceNodeStart(int currentTime, LinkedQueue *pWaitQueue)
 }
 
 // 서비스 종료 처리.
-QueueNode* processServiceNodeEnd(int currentTime, QueueNode *pServiceNode,
-					int *pServiceUserCount, int *pTotalWaitTime)
+QueueNode* processServiceNodeEnd(int currentTime, QueueNode *pServiceNode, int *pServiceUserCount, int *pTotalWaitTime)
 {
 	if (!pServiceNode)
 		return (NULL);
@@ -109,6 +107,14 @@ void printReport(LinkedQueue *pWaitQueue, LinkedQueue *pArrivalQueue, int servic
 	printf("The total waiting time for customers : %d\n", totalWaitTime);
 	printf("AVERAGE WAIT TIME : %.1f\n", (float)totalWaitTime / serviceUserCount);
 }
+	//고객 리스트가 도착 큐에 있다가, 시스템타임과 고객 도착시간이 일치하면 대기 큐로 넘어간다. 고객이 은행이 도착했다는 의미
+	// serviceNode가 점유되어잇으면
+	// 현재 serviceNode를 끝낼 시간이니?
+	// 끝낼거면 점유해제 안 끝나면 계속 점유
+
+	// 점유안돼잇니?
+	// 안돼잇으면 start
+	//돼잇으면 넘기고
 
 int main()
 {
@@ -129,14 +135,6 @@ int main()
 	insertCustomer(4, 1, pArrivalQueue);
 	insertCustomer(6, 1, pArrivalQueue);
 	insertCustomer(8, 3, pArrivalQueue);
-	//고객 리스트가 도착 큐에 있다가, 시스템타임과 고객 도착시간이 일치하면 대기 큐로 넘어간다. 고객이 은행이 도착했다는 의미
-	// serviceNode가 점유되어잇으면
-	// 현재 serviceNode를 끝낼 시간이니?
-	// 끝낼거면 점유해제 안 끝나면 계속 점유
-
-	// 점유안돼잇니?
-	// 안돼잇으면 start
-	//돼잇으면 넘기고
 	while (systemTime <= closingTime)
 	{
 		if (pArrivalQueue->currentElementCount > 0)
