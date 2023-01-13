@@ -1,1 +1,1 @@
-# DoublyList
+# Double linked list
